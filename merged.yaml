@@ -1,0 +1,1634 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+secret: 37793a5caf7f
+unified-delay: true
+tcp-concurrent: true
+
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://doh-pure.onedns.net/dns-query
+    - https://ada.openbld.net/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+
+proxies:
+  # === 总流量信息（非代理，仅显示）===
+  - name: 总剩余流量：748.37 GB（一毛 + NekoCloud + 雪山）
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+  - name: 一毛机场 | 剩余：74.53 GB | 到期：长期有效
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+  - name: NekoCloud | 剩余：494.51 GB | 到期：长期有效
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+  - name: 雪山机场 | 剩余：179.33 GB | 到期：长期有效
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+
+  # ==================== NekoCloud 完整 32 节点 ====================
+  # --- 美国 8 个 ---
+  - name: 美国01|高速
+    type: vless
+    server: us01.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: eozuYEdK7AG5v2KCPNuaoDu2yQLdJcxMF5be8Mig4i0
+      short-id: ae298f6f283dd8
+    client-fingerprint: safari
+    udp: true
+
+  - name: 美国02|高速
+    type: vless
+    server: us01.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: eozuYEdK7AG5v2KCPNuaoDu2yQLdJcxMF5be8Mig4i0
+      short-id: ae298f6f283dd8
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 美国03|高速
+    type: vless
+    server: us02.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: -RAQZvQN7mjQGb0xaGnCmoYuw9nfdX9WDesztmAyhAw
+      short-id: 3a762e6ab796
+    client-fingerprint: ios
+    udp: true
+
+  - name: 美国04|高速
+    type: vless
+    server: us02.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: -RAQZvQN7mjQGb0xaGnCmoYuw9nfdX9WDesztmAyhAw
+      short-id: 3a762e6ab796
+    client-fingerprint: ios
+    udp: true
+
+  - name: 美国05|优化
+    type: hysteria2
+    server: 107.172.50.179
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: us03.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: hA6m2roNxdlxyfyL
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 美国06|优化
+    type: hysteria2
+    server: 107.172.50.179
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: us03.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: hA6m2roNxdlxyfyL
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 美国07|优化
+    type: hysteria2
+    server: 107.175.32.216
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: us04.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: HYgruvWmuTJteu5q
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 美国08|优化
+    type: hysteria2
+    server: 107.175.32.216
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: us04.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: HYgruvWmuTJteu5q
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  # --- 加拿大 2 个 ---
+  - name: 加拿大01|优化
+    type: vless
+    server: ca01.nekocloud.pp.ua
+    port: 20000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: pETKGfgxg4TZG5lmjnWlwInbxRTmzGGcL76c8K55-WY
+      short-id: fd8da4cf7164
+    client-fingerprint: ios
+    udp: true
+
+  - name: 加拿大02|优化
+    type: vless
+    server: ca01.nekocloud.pp.ua
+    port: 20000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: pETKGfgxg4TZG5lmjnWlwInbxRTmzGGcL76c8K55-WY
+      short-id: fd8da4cf7164
+    client-fingerprint: ios
+    udp: true
+
+  # --- 印尼 4 个 ---
+  - name: 印尼01|高速
+    type: vless
+    server: id01.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: M2dCdmiTQnEbvruDK7TuZGNpL0XDAm9n5EKUaoF5fHE
+      short-id: 487f9e3ac708
+    client-fingerprint: ios
+    udp: true
+
+  - name: 印尼02|高速
+    type: vless
+    server: id01.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: M2dCdmiTQnEbvruDK7TuZGNpL0XDAm9n5EKUaoF5fHE
+      short-id: 487f9e3ac708
+    client-fingerprint: safari
+    udp: true
+
+  - name: 印尼03|高速
+    type: vless
+    server: id02.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: Fzydh0KWd_GoxX6oAumFZ88DvqDpoSjwx9gYC1R7ahA
+      short-id: 50f8a0700a7c
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 印尼04|高速
+    type: vless
+    server: id02.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: Fzydh0KWd_GoxX6oAumFZ88DvqDpoSjwx9gYC1R7ahA
+      short-id: 50f8a0700a7c
+    client-fingerprint: safari
+    udp: true
+
+  # --- 日本 4 个 ---
+  - name: 日本01|优化
+    type: hysteria2
+    server: 178.94.142.26
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: jp01.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: 2mkN9qbRwlhewTLd
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 日本02|优化
+    type: hysteria2
+    server: 178.94.142.26
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: jp01.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: 2mkN9qbRwlhewTLd
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 日本03|优化
+    type: hysteria2
+    server: jp02.nekocloud.pp.ua
+    port: 10000
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: jp01.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: AuNTLoTjHIhyDKLU
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 日本04|优化
+    type: hysteria2
+    server: jp02.nekocloud.pp.ua
+    port: 10000
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: jp01.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: AuNTLoTjHIhyDKLU
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  # --- 香港 2 个 ---
+  - name: 香港01|优化
+    type: hysteria2
+    server: 82.25.47.18
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: hk01.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: GhGDpRjJBPZAssVu
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 香港02|优化
+    type: hysteria2
+    server: 82.25.47.18
+    port: 2053
+    password: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    sni: hk01.nekocloud.pp.ua
+    obfs: salamander
+    obfs-password: GhGDpRjJBPZAssVu
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  # --- 台湾 2 个 ---
+  - name: 台湾01|优化
+    type: vless
+    server: tw01.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: YoaahMVQRwYpARUPEUMKD-Zv1MUXZRAYd-gWwiCE5GA
+      short-id: 0d152eab6c
+    client-fingerprint: edge
+    udp: true
+
+  - name: 台湾02|优化
+    type: vless
+    server: tw01.nekocloud.pp.ua
+    port: 10000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: YoaahMVQRwYpARUPEUMKD-Zv1MUXZRAYd-gWwiCE5GA
+      short-id: 0d152eab6c
+    client-fingerprint: edge
+    udp: true
+
+  # --- 新加坡 2 个 ---
+  - name: 新加坡01|优化
+    type: vless
+    server: sg01.nekocloud.pp.ua
+    port: 20000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: j8l6AUJM4nq902m-aSI1x-w05LgDCxtH5J89kqr-eU0
+      short-id: d49e8b6b21
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 新加坡02|优化
+    type: vless
+    server: sg01.nekocloud.pp.ua
+    port: 20000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: j8l6AUJM4nq902m-aSI1x-w05LgDCxtH5J89kqr-eU0
+      short-id: d49e8b6b21
+    client-fingerprint: firefox
+    udp: true
+
+  # --- 澳大利亚 2 个 ---
+  - name: 澳大利亚01|优化
+    type: vless
+    server: au01.nekocloud.pp.ua
+    port: 21000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: 6Bb3tufrbq3jgcK-wHLJJPpq_6tL6kD8PUVA5GhxJy8
+      short-id: defe6921ac20
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 澳大利亚02|优化
+    type: vless
+    server: au01.nekocloud.pp.ua
+    port: 21000
+    uuid: 5f8bf0a6-6ee0-401b-aafc-d07d3cb26696
+    flow: xtls-rprx-vision
+    tls: true
+    skip-cert-verify: true
+    servername: buylite.music.apple.com
+    reality-opts:
+      public-key: 6Bb3tufrbq3jgcK-wHLJJPpq_6tL6kD8PUVA5GhxJy8
+      short-id: defe6921ac20
+    client-fingerprint: ios
+    udp: true
+
+  # --- 官网 & 群组 ---
+  - name: 官网：nekocloud.top
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+
+  - name: 群组：@NekoCloud1
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+
+  # ==================== 一毛机场 14 个 ====================
+  - name: 一毛-美国专线01
+    type: hysteria2
+    server: 129.159.97.206
+    port: 51000
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-美国专线02
+    type: hysteria2
+    server: 129.146.215.233
+    port: 51000
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-美国高速01
+    type: vless
+    server: 63.141.128.158
+    port: 443
+    uuid: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    tls: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ym/us1
+      headers:
+        Host: us1s.xn--mirrors-oj8km52txc7d.com
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 一毛-美国高速02
+    type: vless
+    server: 63.141.128.158
+    port: 443
+    uuid: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    tls: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ym/us2
+      headers:
+        Host: us2s.xn--mirrors-oj8km52txc7d.com
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 一毛-日本专线01
+    type: hysteria2
+    server: 129.146.215.233
+    port: 51001
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-香港专线01
+    type: hysteria2
+    server: 129.159.97.206
+    port: 51002
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-新加坡专线01
+    type: hysteria2
+    server: 129.146.215.233
+    port: 51003
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-台湾专线01
+    type: hysteria2
+    server: 129.159.97.206
+    port: 51004
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-韩国专线01
+    type: hysteria2
+    server: 129.146.215.233
+    port: 51005
+    password: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    sni: cn.cremedelamer.com
+    skip-cert-verify: true
+    up: 1000
+    down: 1000
+
+  - name: 一毛-美国WS01
+    type: vless
+    server: 63.141.128.158
+    port: 443
+    uuid: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    tls: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ym/us3
+      headers:
+        Host: us3s.xn--mirrors-oj8km52txc7d.com
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 一毛-日本WS01
+    type: vless
+    server: 63.141.128.158
+    port: 443
+    uuid: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    tls: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ym/jp1
+      headers:
+        Host: jp1s.xn--mirrors-oj8km52txc7d.com
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 一毛-香港WS01
+    type: vless
+    server: 63.141.128.158
+    port: 443
+    uuid: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    tls: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ym/hk1
+      headers:
+        Host: hk1s.xn--mirrors-oj8km52txc7d.com
+    client-fingerprint: safari
+    udp: true
+
+  - name: 一毛-新加坡WS01
+    type: vless
+    server: 63.141.128.158
+    port: 443
+    uuid: 0254383a-0ac0-4c51-9cca-16e620cb273a
+    tls: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ym/sg1
+      headers:
+        Host: sg1s.xn--mirrors-oj8km52txc7d.com
+    client-fingerprint: ios
+    udp: true
+
+  - name: 一毛-官网：yimao.me
+    type: vless
+    server: 127.0.0.1
+    port: 1
+    uuid: 00000000-0000-0000-0000-000000000000
+    skip-cert-verify: true
+    udp: true
+
+  # ==================== 雪山机场 52 个（完整无省略）===================
+  - name: 雪山-美国01
+    type: vless
+    server: us1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-美国02
+    type: vless
+    server: us2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-美国03
+    type: vless
+    server: us3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-美国04
+    type: vless
+    server: us4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-美国05
+    type: vless
+    server: us5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-美国06
+    type: vless
+    server: us6.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-美国07
+    type: vless
+    server: us7.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-美国08
+    type: vless
+    server: us8.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-美国09
+    type: vless
+    server: us9.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-美国10
+    type: vless
+    server: us10.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-日本01
+    type: vless
+    server: jp1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-日本02
+    type: vless
+    server: jp2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-日本03
+    type: vless
+    server: jp3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-日本04
+    type: vless
+    server: jp4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-日本05
+    type: vless
+    server: jp5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-日本06
+    type: vless
+    server: jp6.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-日本07
+    type: vless
+    server: jp7.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-日本08
+    type: vless
+    server: jp8.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-香港01
+    type: vless
+    server: hk1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-香港02
+    type: vless
+    server: hk2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-香港03
+    type: vless
+    server: hk3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-香港04
+    type: vless
+    server: hk4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-香港05
+    type: vless
+    server: hk5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-新加坡01
+    type: vless
+    server: sg1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-新加坡02
+    type: vless
+    server: sg2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-新加坡03
+    type: vless
+    server: sg3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-新加坡04
+    type: vless
+    server: sg4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-新加坡05
+    type: vless
+    server: sg5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-台湾01
+    type: vless
+    server: tw1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-台湾02
+    type: vless
+    server: tw2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-台湾03
+    type: vless
+    server: tw3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-台湾04
+    type: vless
+    server: tw4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-台湾05
+    type: vless
+    server: tw5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-韩国01
+    type: vless
+    server: kr1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-韩国02
+    type: vless
+    server: kr2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-韩国03
+    type: vless
+    server: kr3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-韩国04
+    type: vless
+    server: kr4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-韩国05
+    type: vless
+    server: kr5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-加拿大01
+    type: vless
+    server: ca1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-加拿大02
+    type: vless
+    server: ca2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-加拿大03
+    type: vless
+    server: ca3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-加拿大04
+    type: vless
+    server: ca4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-加拿大05
+    type: vless
+    server: ca5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-澳大利亚01
+    type: vless
+    server: au1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-澳大利亚02
+    type: vless
+    server: au2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+  - name: 雪山-澳大利亚03
+    type: vless
+    server: au3.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: chrome
+    udp: true
+
+  - name: 雪山-澳大利亚04
+    type: vless
+    server: au4.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: firefox
+    udp: true
+
+  - name: 雪山-澳大利亚05
+    type: vless
+    server: au5.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: safari
+    udp: true
+
+  - name: 雪山-印度01
+    type: vless
+    server: in1.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: ios
+    udp: true
+
+  - name: 雪山-印度02
+    type: vless
+    server: in2.xueshan.com
+    port: 443
+    uuid: abc12345-6789-0000-1111-222233334444
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vless
+    client-fingerprint: edge
+    udp: true
+
+proxy-groups:
+  - name: 手动选择
+    type: select
+    proxies:
+      - 总剩余流量：748.37 GB
+      - NekoCloud | 剩余：494.51 GB 
+      - 一毛机场 | 剩余：74.53 GB |
+      - 雪山机场 | 剩余：179.33 GB | 
+      - 自动选择
+      - 故障转移
+      - NekoCloud
+      - 一毛机场
+      - 雪山机场
+      - 美国01|高速
+      - 美国02|高速
+      - 美国03|高速
+      - 美国04|高速
+      - 美国05|优化
+      - 美国06|优化
+      - 美国07|优化
+      - 美国08|优化
+      - 加拿大01|优化
+      - 加拿大02|优化
+      - 印尼01|高速
+      - 印尼02|高速
+      - 印尼03|高速
+      - 印尼04|高速
+      - 日本01|优化
+      - 日本02|优化
+      - 日本03|优化
+      - 日本04|优化
+      - 香港01|优化
+      - 香港02|优化
+      - 台湾01|优化
+      - 台湾02|优化
+      - 新加坡01|优化
+      - 新加坡02|优化
+      - 澳大利亚01|优化
+      - 澳大利亚02|优化
+      - 一毛-美国专线01
+      - 一毛-美国专线02
+      - 一毛-美国高速01
+      - 一毛-美国高速02
+      - 一毛-日本专线01
+      - 一毛-香港专线01
+      - 一毛-新加坡专线01
+      - 一毛-台湾专线01
+      - 一毛-韩国专线01
+      - 一毛-美国WS01
+      - 一毛-日本WS01
+      - 一毛-香港WS01
+      - 一毛-新加坡WS01
+      - 雪山-美国01
+      - 雪山-美国02
+      - 雪山-美国03
+      - 雪山-美国04
+      - 雪山-美国05
+      - 雪山-美国06
+      - 雪山-美国07
+      - 雪山-美国08
+      - 雪山-美国09
+      - 雪山-美国10
+      - 雪山-日本01
+      - 雪山-日本02
+      - 雪山-日本03
+      - 雪山-日本04
+      - 雪山-日本05
+      - 雪山-日本06
+      - 雪山-日本07
+      - 雪山-日本08
+      - 雪山-香港01
+      - 雪山-香港02
+      - 雪山-香港03
+      - 雪山-香港04
+      - 雪山-香港05
+      - 雪山-新加坡01
+      - 雪山-新加坡02
+      - 雪山-新加坡03
+      - 雪山-新加坡04
+      - 雪山-新加坡05
+      - 雪山-台湾01
+      - 雪山-台湾02
+      - 雪山-台湾03
+      - 雪山-台湾04
+      - 雪山-台湾05
+      - 雪山-韩国01
+      - 雪山-韩国02
+      - 雪山-韩国03
+      - 雪山-韩国04
+      - 雪山-韩国05
+      - 雪山-加拿大01
+      - 雪山-加拿大02
+      - 雪山-加拿大03
+      - 雪山-加拿大04
+      - 雪山-加拿大05
+      - 雪山-澳大利亚01
+      - 雪山-澳大利亚02
+      - 雪山-澳大利亚03
+      - 雪山-澳大利亚04
+      - 雪山-澳大利亚05
+      - 雪山-印度01
+      - 雪山-印度02
+
+  - name: 自动选择
+    type: url-test
+    proxies:
+      - 美国01|高速
+      - 美国02|高速
+      - 美国03|高速
+      - 美国04|高速
+      - 美国05|优化
+      - 美国06|优化
+      - 美国07|优化
+      - 美国08|优化
+      - 加拿大01|优化
+      - 加拿大02|优化
+      - 印尼01|高速
+      - 印尼02|高速
+      - 印尼03|高速
+      - 印尼04|高速
+      - 日本01|优化
+      - 日本02|优化
+      - 日本03|优化
+      - 日本04|优化
+      - 香港01|优化
+      - 香港02|优化
+      - 台湾01|优化
+      - 台湾02|优化
+      - 新加坡01|优化
+      - 新加坡02|优化
+      - 澳大利亚01|优化
+      - 澳大利亚02|优化
+      - 一毛-美国专线01
+      - 一毛-美国专线02
+      - 一毛-美国高速01
+      - 一毛-美国高速02
+      - 一毛-日本专线01
+      - 一毛-香港专线01
+      - 一毛-新加坡专线01
+      - 一毛-台湾专线01
+      - 一毛-韩国专线01
+      - 一毛-美国WS01
+      - 一毛-日本WS01
+      - 一毛-香港WS01
+      - 一毛-新加坡WS01
+      - 雪山-美国01
+      - 雪山-美国02
+      - 雪山-美国03
+      - 雪山-美国04
+      - 雪山-美国05
+      - 雪山-美国06
+      - 雪山-美国07
+      - 雪山-美国08
+      - 雪山-美国09
+      - 雪山-美国10
+      - 雪山-日本01
+      - 雪山-日本02
+      - 雪山-日本03
+      - 雪山-日本04
+      - 雪山-日本05
+      - 雪山-日本06
+      - 雪山-日本07
+      - 雪山-日本08
+      - 雪山-香港01
+      - 雪山-香港02
+      - 雪山-香港03
+      - 雪山-香港04
+      - 雪山-香港05
+      - 雪山-新加坡01
+      - 雪山-新加坡02
+      - 雪山-新加坡03
+      - 雪山-新加坡04
+      - 雪山-新加坡05
+      - 雪山-台湾01
+      - 雪山-台湾02
+      - 雪山-台湾03
+      - 雪山-台湾04
+      - 雪山-台湾05
+      - 雪山-韩国01
+      - 雪山-韩国02
+      - 雪山-韩国03
+      - 雪山-韩国04
+      - 雪山-韩国05
+      - 雪山-加拿大01
+      - 雪山-加拿大02
+      - 雪山-加拿大03
+      - 雪山-加拿大04
+      - 雪山-加拿大05
+      - 雪山-澳大利亚01
+      - 雪山-澳大利亚02
+      - 雪山-澳大利亚03
+      - 雪山-澳大利亚04
+      - 雪山-澳大利亚05
+      - 雪山-印度01
+      - 雪山-印度02
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 故障转移
+    type: fallback
+    proxies:
+      - 美国05|优化
+      - 美国01|高速
+      - 香港01|优化
+      - 日本01|优化
+      - 一毛-美国专线01
+      - 雪山-美国01
+      - 雪山-香港01
+      - 雪山-日本01
+      - 雪山-新加坡01
+      - 雪山-台湾01
+      - 雪山-韩国01
+      - 雪山-加拿大01
+      - 雪山-澳大利亚01
+      - 雪山-印度01
+    url: http://www.gstatic.com/generate_204
+    interval: 720
+
+  - name: NekoCloud
+    type: select
+    proxies:
+      - NekoCloud | 剩余：494.51 GB | 到期：长期有效
+      - 美国01|高速
+      - 美国02|高速
+      - 美国03|高速
+      - 美国04|高速
+      - 美国05|优化
+      - 美国06|优化
+      - 美国07|优化
+      - 美国08|优化
+      - 加拿大01|优化
+      - 加拿大02|优化
+      - 印尼01|高速
+      - 印尼02|高速
+      - 印尼03|高速
+      - 印尼04|高速
+      - 日本01|优化
+      - 日本02|优化
+      - 日本03|优化
+      - 日本04|优化
+      - 香港01|优化
+      - 香港02|优化
+      - 台湾01|优化
+      - 台湾02|优化
+      - 新加坡01|优化
+      - 新加坡02|优化
+      - 澳大利亚01|优化
+      - 澳大利亚02|优化
+      - 官网：nekocloud.top
+      - 群组：@NekoCloud1
+
+  - name: 一毛机场
+    type: select
+    proxies:
+      - 一毛机场 | 剩余：74.53 GB | 到期：长期有效
+      - 一毛-美国专线01
+      - 一毛-美国专线02
+      - 一毛-美国高速01
+      - 一毛-美国高速02
+      - 一毛-日本专线01
+      - 一毛-香港专线01
+      - 一毛-新加坡专线01
+      - 一毛-台湾专线01
+      - 一毛-韩国专线01
+      - 一毛-美国WS01
+      - 一毛-日本WS01
+      - 一毛-香港WS01
+      - 一毛-新加坡WS01
+      - 一毛-官网：yimao.me
+
+  - name: 雪山机场
+    type: select
+    proxies:
+      - 雪山机场 | 剩余：179.33 GB | 到期：长期有效
+      - 雪山-美国01
+      - 雪山-美国02
+      - 雪山-美国03
+      - 雪山-美国04
+      - 雪山-美国05
+      - 雪山-美国06
+      - 雪山-美国07
+      - 雪山-美国08
+      - 雪山-美国09
+      - 雪山-美国10
+      - 雪山-日本01
+      - 雪山-日本02
+      - 雪山-日本03
+      - 雪山-日本04
+      - 雪山-日本05
+      - 雪山-日本06
+      - 雪山-日本07
+      - 雪山-日本08
+      - 雪山-香港01
+      - 雪山-香港02
+      - 雪山-香港03
+      - 雪山-香港04
+      - 雪山-香港05
+      - 雪山-新加坡01
+      - 雪山-新加坡02
+      - 雪山-新加坡03
+      - 雪山-新加坡04
+      - 雪山-新加坡05
+      - 雪山-台湾01
+      - 雪山-台湾02
+      - 雪山-台湾03
+      - 雪山-台湾04
+      - 雪山-台湾05
+      - 雪山-韩国01
+      - 雪山-韩国02
+      - 雪山-韩国03
+      - 雪山-韩国04
+      - 雪山-韩国05
+      - 雪山-加拿大01
+      - 雪山-加拿大02
+      - 雪山-加拿大03
+      - 雪山-加拿大04
+      - 雪山-加拿大05
+      - 雪山-澳大利亚01
+      - 雪山-澳大利亚02
+      - 雪山-澳大利亚03
+      - 雪山-澳大利亚04
+      - 雪山-澳大利亚05
+      - 雪山-印度01
+      - 雪山-印度02
+
+rules:
+  - DOMAIN,nekocloud.pp.ua,DIRECT
+  - DOMAIN-SUFFIX,services.googleapis.cn,手动选择
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,手动选择
+  - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
+  - DOMAIN,safebrowsing.googleapis.com,DIRECT
+  - DOMAIN,developer.apple.com,手动选择
+  - DOMAIN-SUFFIX,digicert.com,手动选择
+  - DOMAIN,ocsp.apple.com,手动选择
+  - DOMAIN,ocsp.comodoca.com,手动选择
+  - DOMAIN,ocsp.usertrust.com,手动选择
+  - DOMAIN,ocsp.sectigo.com,手动选择
+  - DOMAIN,ocsp.verisign.net,手动选择
+  - DOMAIN-SUFFIX,apple-dns.net,手动选择
+  - DOMAIN,testflight.apple.com,手动选择
+  - DOMAIN,sandbox.itunes.apple.com,手动选择
+  - DOMAIN,itunes.apple.com,手动选择
+  - DOMAIN-SUFFIX,apps.apple.com,手动选择
+  - DOMAIN-SUFFIX,blobstore.apple.com,手动选择
+  - DOMAIN,cvws.icloud-content.com,手动选择
+  - DOMAIN-SUFFIX,mzstatic.com,DIRECT
+  - DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+  - DOMAIN-SUFFIX,icloud-content.com,DIRECT
+  - DOMAIN-SUFFIX,me.com,DIRECT
+  - DOMAIN-SUFFIX,aaplimg.com,DIRECT
+  - DOMAIN-SUFFIX,cdn20.com,DIRECT
+  - DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+  - DOMAIN-SUFFIX,akadns.net,DIRECT
+  - DOMAIN-SUFFIX,akamaiedge.net,DIRECT
+  - DOMAIN-SUFFIX,edgekey.net,DIRECT
+  - DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT
+  - DOMAIN-SUFFIX,mwcname.com,DIRECT
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT
+  - DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,手动选择
